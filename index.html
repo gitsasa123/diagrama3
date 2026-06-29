@@ -9,7 +9,7 @@
 
     body {
       min-height: 100vh;
-      background: #0f172a;
+      background: #faddb7;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,12 +23,12 @@
       font-size: 1.5rem;
       letter-spacing: 0.08em;
       margin-bottom: 0.3rem;
-      color: #f8fafc;
+      color: #4d0912;
       font-weight: 700;
     }
 
     .subtitle {
-      color: #94a3b8;
+      color: #4d0912;
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
       text-align: center;
@@ -58,7 +58,7 @@
 
     svg {
       display: block;
-      background: #1e293b;
+      background: #fff8ef;
       border-radius: 1rem;
       box-shadow: 0 8px 40px rgba(0,0,0,0.5);
       max-width: 100%;
@@ -66,7 +66,7 @@
 
     .info-card {
       margin-top: 1.2rem;
-      background: #1e293b;
+      background: #fff8ef   ;
       border-radius: 0.75rem;
       padding: 1rem 1.4rem;
       width: 560px;
@@ -90,8 +90,8 @@
     }
 
     .info-title { font-size: 0.95rem; font-weight: bold; }
-    .info-desc { color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; }
-    .info-formula { color: #64748b; font-size: 0.82rem; margin-top: 0.6rem; font-family: monospace; }
+    .info-desc { color: #4d0912; font-size: 0.88rem; line-height: 1.6; }
+    .info-formula { color: #4d0912; font-size: 0.82rem; margin-top: 0.6rem; font-family: monospace; }
   </style>
 </head>
 <body>
@@ -125,9 +125,9 @@ function toY(p) { return PAD.top + ((P_MAX - p) / (P_MAX - P_MIN)) * PLOT_H; }
 const PROCESSES = [
   {
     id: "isothermal",
-    label: "Isotérmico (T = cte)",
-    color: "#3b82f6",
-    desc: "A temperatura é constante. A pressão e o volume variam inversamente (p·V = cte). A curva é uma hipérbole no diagrama p–V.",
+    label: "Isotérmico",
+    color: "#4d0912",
+    desc: "A temperatura é constante. A pressão e o volume variam inversamente (p·V = cte). A curva é uma hipérbole no diagrama p–V. (T = cte)",
     formula: "W = ∫ p dV  |  área colorida sob a curva",
     getPoints() {
       const pts = [];
@@ -137,25 +137,25 @@ const PROCESSES = [
   },
   {
     id: "isobaric",
-    label: "Isobárico (p = cte)",
-    color: "#10b981",
-    desc: "A pressão é constante. O trabalho é simplesmente W = p·ΔV — um retângulo no diagrama p–V.",
+    label: "Isobárico",
+    color: "#c90c0f",
+    desc: "A pressão é constante. O trabalho é simplesmente W = p·ΔV — um retângulo no diagrama p–V. (p = cte)",
     formula: "W = p · ΔV  |  área do retângulo sob a linha",
     getPoints() { return [[1.0, 2.5], [3.0, 2.5]]; }
   },
   {
     id: "isochoric",
-    label: "Isocórico (V = cte)",
-    color: "#f59e0b",
-    desc: "O volume é constante. O êmbolo não se move, portanto o trabalho realizado pelo gás é zero (W = 0).",
+    label: "Isocórico",
+    color: "#ff3131",
+    desc: "O volume é constante. O êmbolo não se move, portanto o trabalho realizado pelo gás é zero (W = 0). (V = cte)",
     formula: "ΔV = 0  →  W = 0  (nenhum trabalho realizado)",
     getPoints() { return [[2.0, 1.2], [2.0, 3.8]]; }
   },
   {
     id: "adiabatic",
-    label: "Adiabático (Q = 0)",
-    color: "#ef4444",
-    desc: "Sem troca de calor com o ambiente. A curva cai mais abruptamente do que a isotérmica, pois a temperatura também diminui com a expansão.",
+    label: "Adiabático",
+    color: "#f29898",
+    desc: "Sem troca de calor com o ambiente. A curva cai mais abruptamente do que a isotérmica, pois a temperatura também diminui com a expansão. (Q = 0)",
     formula: "W = ∫ p dV  |  área colorida sob a curva",
     getPoints() {
       const pts = [], gamma = 1.4, C = 4.2 * Math.pow(1.0, gamma);
